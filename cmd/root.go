@@ -15,6 +15,9 @@ var (
 	rootCmd = &cobra.Command{
 		Use:   "korea",
 		Short: "Tool for korean language",
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("Words")
+		},
 	}
 )
 
