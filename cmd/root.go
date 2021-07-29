@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/A1esandr/korean/internal/app"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -12,7 +13,7 @@ var (
 		Use:   "korea",
 		Short: "Tool for korean language",
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("Words")
+			Word("first")
 		},
 	}
 )
@@ -23,4 +24,9 @@ func Execute() {
 		_, _ = fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
+}
+
+func Word(word string) {
+	w := app.ReadCsv("csv/" + word + ".csv")
+	app.Check(w)
 }
