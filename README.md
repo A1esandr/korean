@@ -1,2 +1,2 @@
 # korean
-Korean words
+Cli tool to learn korean words
