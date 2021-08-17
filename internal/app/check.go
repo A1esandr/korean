@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -18,11 +19,13 @@ func Check(s [][]string) {
 func subCheck(p []string, reader bufio.Reader) {
 	fmt.Print(p[0] + ": ")
 	text, _ := reader.ReadString('\n')
-	text = strings.Replace(text, "\n", "", -1)
+	text = strings.TrimSpace(text)
 
 	if text == p[1] {
 		fmt.Println("success")
 	} else {
-		fmt.Println("wrong. right - " + p[1])
+		fmt.Println("wrong. right - ", p[1],
+			" len: current ", strconv.Itoa(len(text)),
+			" right ", strconv.Itoa(len(p[1])))
 	}
 }
